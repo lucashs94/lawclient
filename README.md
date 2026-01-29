@@ -1,21 +1,21 @@
-# Plataforma de Gerenciamento de Clientes - Facilita Juridico
+# Plataforma de Gerenciamento de Clientes Jurídicos
 
-Aplicacao fullstack para gerenciamento de clientes de um escritorio juridico, com cadastro, busca, listagem paginada e calculo de rota otimizada de visitacao.
+Aplicação fullstack para gerenciamento de clientes de um escritório jurídico, com cadastro, busca, listagem paginada e cálculo de rota otimizada de visitação.
 
 ## Tech Stack
 
 **Frontend:** React 18, TypeScript, Vite, Tailwind CSS, Shadcn UI (Radix), Zustand, Axios, Sonner (toasts)
 
-**Backend:** Node.js, Express, TypeScript, PostgreSQL (pg), Zod (validacao), Vitest (testes)
+**Backend:** Node.js, Express, TypeScript, PostgreSQL (pg), Zod (validação), Vitest (testes)
 
 **Infra:** Docker, Docker Compose
 
 ## Funcionalidades
 
-- Cadastro de clientes com validacao de dados via Zod
+- Cadastro de clientes com validação de dados via Zod
 - Listagem paginada com busca por nome, email ou telefone
-- Exclusao de clientes
-- Calculo de rota otimizada para visitacao de clientes selecionados
+- Exclusão de clientes
+- Cálculo de rota otimizada para visitação de clientes selecionados
 - Dark mode
 - Seed de dados com Faker.js para testes
 
@@ -25,10 +25,10 @@ Aplicacao fullstack para gerenciamento de clientes de um escritorio juridico, co
 backend/
   src/
     http/controllers/    # Controllers (createClient, getClients, deleteClient, calculateRoute)
-    services/            # Regras de negocio
+    services/            # Regras de negócio
     repositories/        # Camada de acesso a dados (PostgreSQL)
-    schemas/             # Validacao com Zod
-    database/            # Migrations, seed e conexao
+    schemas/             # Validação com Zod
+    database/            # Migrations, seed e conexão
     Error/               # Tratamento de erros customizado
 
 frontend/
@@ -40,7 +40,7 @@ frontend/
 
 ## Como Rodar
 
-### Pre-requisitos
+### Pré-requisitos
 - Node.js 18+
 - Docker e Docker Compose
 
@@ -49,7 +49,7 @@ frontend/
 ```bash
 cd backend
 npm install
-cp .env.example .env       # ajuste as variaveis se necessario
+cp .env.example .env       # ajuste as variáveis se necessário
 docker compose up -d        # sobe o PostgreSQL
 npm run migrate             # cria as tabelas
 npm run seed                # (opcional) popula com 10 registros
