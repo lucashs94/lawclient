@@ -1,116 +1,78 @@
+# Plataforma de Gerenciamento de Clientes - Facilita Juridico
 
+Aplicacao fullstack para gerenciamento de clientes de um escritorio juridico, com cadastro, busca, listagem paginada e calculo de rota otimizada de visitacao.
 
-<h1 align="center"> 
-	Desafio - Desenvolvedor Facilita Jurídico
-</h1>
-<br>
+## Tech Stack
 
+**Frontend:** React 18, TypeScript, Vite, Tailwind CSS, Shadcn UI (Radix), Zustand, Axios, Sonner (toasts)
 
-## ⚙️ Backend
+**Backend:** Node.js, Express, TypeScript, PostgreSQL (pg), Zod (validacao), Vitest (testes)
 
-💡O backend foi desenvolvido com **NODE**, **EXPRESS** e **POSTGRESQL**.
+**Infra:** Docker, Docker Compose
 
-💡O banco postgres foi criando usando docker e docker-compose.
- 
-💡O DDL encontra-se na pasta backend/src/database/migrations
+## Funcionalidades
 
----
+- Cadastro de clientes com validacao de dados via Zod
+- Listagem paginada com busca por nome, email ou telefone
+- Exclusao de clientes
+- Calculo de rota otimizada para visitacao de clientes selecionados
+- Dark mode
+- Seed de dados com Faker.js para testes
 
-### Executando o backend
+## Arquitetura
 
-
- 
-**Clone este repositório**
-
-```bash
-git clone https://github.com/lucashs94/desafio_Facilita_Juridico.git
 ```
- 
-**Acesse a pasta do backend**
+backend/
+  src/
+    http/controllers/    # Controllers (createClient, getClients, deleteClient, calculateRoute)
+    services/            # Regras de negocio
+    repositories/        # Camada de acesso a dados (PostgreSQL)
+    schemas/             # Validacao com Zod
+    database/            # Migrations, seed e conexao
+    Error/               # Tratamento de erros customizado
+
+frontend/
+  src/
+    components/          # Componentes React (TableClient, Search, Pagination, DrawerForms, RouteDialog)
+    components/ui/       # Componentes Shadcn UI
+    components/theme/    # Tema dark/light
+```
+
+## Como Rodar
+
+### Pre-requisitos
+- Node.js 18+
+- Docker e Docker Compose
+
+### Backend
 
 ```bash
 cd backend
-```
- 
-**Instale as dependências**
-
-```bash
 npm install
-```
- 
-**Altere o arquivo .env.example para .env e mude as variaveis, caso deseje**
-```bash
-cp .env.example .env
-```
- 
-**Usando docker compose, vamos levantar o container do postgres**
-```bash
-docker compose up -d
-```
- 
-**Com o banco criado, vamos rodar a migration da tabela**
-```bash
-npm run migrate
-```
- 
-**Caso deseje, rode o comando abaixo para popular a tabela com 10 registros**
-```bash
-npm run seed
-```
- 
-**Está tudo pronto, vamos rodar o servidor na porta 3333 ou na porta do arquivo .env**
-```bash
-npm run dev
+cp .env.example .env       # ajuste as variaveis se necessario
+docker compose up -d        # sobe o PostgreSQL
+npm run migrate             # cria as tabelas
+npm run seed                # (opcional) popula com 10 registros
+npm run dev                 # inicia na porta 3333
 ```
 
----
-<br>
-
-## 🎨 Frontend
-
-💡O frontend foi desenvolvido com **REACT**, **VITE**, **SHADCN-UI** e **TAILWIND**.
-
----
-
-### Executando o frontend
-
-**Com o repositorio clonado anteriormente, acesse a pasta do frontend**
+### Frontend
 
 ```bash
-cd .. && cd frontend
-```
-
-**Instale as dependencias**
-
-```bash
+cd frontend
 npm install
-```
- 
-**Altere o arquivo .env.example para .env e mude as variaveis, caso deseje**
-```bash
 cp .env.example .env
+npm run dev                 # inicia em http://localhost:5173
 ```
- 
-**Está tudo pronto, vamos rodar o frontend**
+
+### Testes
+
 ```bash
-npm run dev
+cd backend
+npm test                    # roda testes com Vitest
+npm run test:watch          # modo watch
 ```
- 
-**Acesse o frontend em**
-```bash
-http://localhost:5173
-```
----
-<br>
 
-## 🦸 Autor
+## Autor
 
-<a href="https://lucassilva.me">
- <img style="border-radius: 50%;" src="https://github.com/lucashs94.png" width="100px;" alt=""/>
- <br />
-<!--  <sub><b>Thiago Marinho</b></sub></a> <a href="https://blog.rocketseat.com.br/author/thiago/" title="Rocketseat">🚀</a> -->
- <br />
-
-<!---[![Twitter Badge](https://img.shields.io/badge/-@tgmarinho-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/tgmarinho)](https://twitter.com/tgmarinho) -->
-[![Linkedin Badge](https://img.shields.io/badge/-Lucas_Silva-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/lucashs94/)](https://www.linkedin.com/in/lucashs94/) <br>
-[![Gmail Badge](https://img.shields.io/badge/-h7.lucas@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:h7.lucas@gmail.com)](mailto:h7.lucas@gmail.com)
+**Lucas Silva** - [LinkedIn](https://www.linkedin.com/in/lucashs94/) | [GitHub](https://github.com/lucashs94) | h7.lucas@gmail.com
