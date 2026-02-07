@@ -1,59 +1,59 @@
-# Plataforma de Gerenciamento de Clientes Jurídicos
+# Lawclient
 
-Aplicação fullstack para gerenciamento de clientes de um escritório jurídico, com cadastro, busca, listagem paginada e cálculo de rota otimizada de visitação.
+A fullstack application for managing law firm clients, featuring registration, search, paginated listing, and optimized visitation route calculation.
 
 ## Tech Stack
 
 **Frontend:** React 18, TypeScript, Vite, Tailwind CSS, Shadcn UI (Radix), Zustand, Axios, Sonner (toasts)
 
-**Backend:** Node.js, Express, TypeScript, PostgreSQL (pg), Zod (validação), Vitest (testes)
+**Backend:** Node.js, Express, TypeScript, PostgreSQL (pg), Zod (validation), Vitest (tests)
 
-**Infra:** Docker, Docker Compose
+**Infrastructure:** Docker, Docker Compose
 
-## Funcionalidades
+## Features
 
-- Cadastro de clientes com validação de dados via Zod
-- Listagem paginada com busca por nome, email ou telefone
-- Exclusão de clientes
-- Cálculo de rota otimizada para visitação de clientes selecionados
+- Client registration with data validation via Zod
+- Paginated listing with search by name, email, or phone
+- Client deletion
+- Optimized route calculation for visiting selected clients
 - Dark mode
-- Seed de dados com Faker.js para testes
+- Data seeding with Faker.js for testing
 
-## Arquitetura
+## Architecture
 
 ```
 backend/
   src/
     http/controllers/    # Controllers (createClient, getClients, deleteClient, calculateRoute)
-    services/            # Regras de negócio
-    repositories/        # Camada de acesso a dados (PostgreSQL)
-    schemas/             # Validação com Zod
-    database/            # Migrations, seed e conexão
-    Error/               # Tratamento de erros customizado
+    services/            # Business logic
+    repositories/        # Data access layer (PostgreSQL)
+    schemas/             # Validation with Zod
+    database/            # Migrations, seed, and connection
+    Error/               # Custom error handling
 
 frontend/
   src/
-    components/          # Componentes React (TableClient, Search, Pagination, DrawerForms, RouteDialog)
-    components/ui/       # Componentes Shadcn UI
-    components/theme/    # Tema dark/light
+    components/          # React components (TableClient, Search, Pagination, DrawerForms, RouteDialog)
+    components/ui/       # Shadcn UI components
+    components/theme/    # Dark/light theme
 ```
 
-## Como Rodar
+## Getting Started
 
-### Pré-requisitos
+### Prerequisites
 - Node.js 18+
-- Docker e Docker Compose
+- Docker and Docker Compose
 
 ### Backend
 
 ```bash
 cd backend
 npm install
-cp .env.example .env       # ajuste as variáveis se necessário
-docker compose up -d        # sobe o PostgreSQL
-npm run migrate             # cria as tabelas
-npm run seed                # (opcional) popula com 10 registros
-npm run dev                 # inicia na porta 3333
+cp .env.example .env       # adjust variables if needed
+docker compose up -d        # start PostgreSQL
+npm run migrate             # create the tables
+npm run seed                # (optional) populate with 10 records
+npm run dev                 # starts on port 3333
 ```
 
 ### Frontend
@@ -62,17 +62,13 @@ npm run dev                 # inicia na porta 3333
 cd frontend
 npm install
 cp .env.example .env
-npm run dev                 # inicia em http://localhost:5173
+npm run dev                 # starts at http://localhost:5173
 ```
 
-### Testes
+### Tests
 
 ```bash
 cd backend
-npm test                    # roda testes com Vitest
-npm run test:watch          # modo watch
+npm test                    # run tests with Vitest
+npm run test:watch          # watch mode
 ```
-
-## Autor
-
-**Lucas Silva** - [LinkedIn](https://www.linkedin.com/in/lucashs94/) | [GitHub](https://github.com/lucashs94) | h7.lucas@gmail.com
